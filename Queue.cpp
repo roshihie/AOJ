@@ -3,9 +3,9 @@
 #include <string>
 using namespace  std;
 
-typedef pair<string, int> PAIR;
+typedef pair<string, int> Pair;
 
-void fnInput(int& rnQtm, queue<PAIR>& rqPPrc)
+void fnInput(int& rnQtm, queue<Pair>& rqPPrc)
 {
   int nMaxProc;
   cin >> nMaxProc >> rnQtm;
@@ -15,16 +15,16 @@ void fnInput(int& rnQtm, queue<PAIR>& rqPPrc)
     string sPrcNam;
     int nPrcTim;
     cin >> sPrcNam >> nPrcTim;
-    rqPPrc.push(PAIR(sPrcNam, nPrcTim));
+    rqPPrc.push(Pair(sPrcNam, nPrcTim));
   }
 }
 
-void fnSchedule(int nQtm, queue<PAIR>& rqPPrc)
+void fnSchedule(int nQtm, queue<Pair>& rqPPrc)
 {
   int nSumTim = 0;
   while (rqPPrc.size())
   {
-    PAIR PProcess = rqPPrc.front(); rqPPrc.pop(); 
+    Pair PProcess = rqPPrc.front(); rqPPrc.pop(); 
     if (PProcess.second > nQtm)
     {
       PProcess.second -= nQtm;
@@ -45,7 +45,7 @@ int main()
   ios::sync_with_stdio(false);
   
   int nQtm;
-  queue<PAIR> qPPrc;
+  queue<Pair> qPPrc;
   
   fnInput(nQtm, qPPrc);
   fnSchedule(nQtm, qPPrc);
